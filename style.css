@@ -1,0 +1,248 @@
+
+html {
+    font-size: 62.5%; /* 10px / 16px = 62.5% */
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    /* Black/Dark Gray Theme */
+    background-color: #121212; 
+    color: #f0f0f0; /* Light text color */
+    line-height: 1.6;
+}
+
+/* Typography and Relative Units */
+h1 { font-size: 5rem; }
+h2 { font-size: 4rem; }
+h3 { font-size: 3rem; margin-bottom: 2rem; }
+p { font-size: 1.6rem; }
+a { font-size: 1.6rem; text-decoration: none; color: inherit; }
+
+.section {
+    padding: 10rem 5vw; /* Use vw for horizontal spacing */
+    max-width: 120rem;
+    margin: 0 auto;
+}
+
+/* Primary Button Styling */
+.btn-primary {
+    display: inline-block;
+    padding: 1rem 2rem;
+    font-size: 1.6rem;
+    font-weight: 600;
+    background-color: #FF0000; /* Bright Red Accent */
+    color: #fff;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition */
+}
+
+.btn-primary:hover {
+    background-color: #CC0000; /* Darker Red on hover */
+    transform: translateY(-0.2rem); /* CSS Transform on hover */
+}
+
+/* 1. Header Styling (Using Flexbox) */
+.header {
+    display: flex; /* Flexbox for alignment */
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 5vw;
+    background-color: #000000;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: #FF0000; /* Red accent for the logo */
+}
+
+.nav-links a {
+    margin-left: 2.5rem;
+    transition: color 0.3s ease; /* Smooth hover effect */
+}
+
+.nav-links a:hover:not(.btn-primary) {
+    color: #FF0000; /* Red on hover */
+}
+
+/* 2. Hero Section Styling (Using Flexbox) */
+.hero-section {
+    display: flex; /* Flexbox side-by-side layout (Desktop default) */
+    align-items: center;
+    justify-content: space-between;
+    min-height: 80vh; /* Use vh for vertical height */
+    padding: 0 5vw;
+    gap: 4rem;
+}
+
+.hero-content {
+    max-width: 60rem;
+}
+
+.hero-image img {
+    width: 30vw; /* Responsive image size */
+    max-width: 35rem;
+    height: auto;
+    border-radius: 50%;
+    border: 0.5rem solid #FF0000; /* Red border */
+}
+
+/* Keyframe Animation for H2 text */
+@keyframes color-change {
+    0%   { color: #FF0000; }
+    50%  { color: #FFFFFF; }
+    100% { color: #FF0000; }
+}
+
+.animated-text {
+    font-size: 6rem;
+    font-weight: 700;
+    margin: 1rem 0 2rem;
+    animation: color-change 4s infinite alternate; /* Apply animation */
+}
+
+/* 4. Skills Section Styling (Using CSS Grid) */
+.skills-grid {
+    display: grid; /* CSS Grid layout */
+    /* Updated to 3 columns, perfect for your three skills */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 2rem;
+}
+
+.skill-card {
+    background-color: #222222;
+    padding: 2rem;
+    border-radius: 0.8rem;
+    text-align: center;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.skill-card:hover {
+    background-color: #FF0000; /* Red background on hover */
+    transform: scale(1.05); /* Transform effect */
+}
+
+.skill-card h4 {
+    margin: 0 0 0.5rem;
+    font-size: 2rem;
+}
+.skill-card p {
+    font-size: 1.4rem;
+    opacity: 0.8;
+}
+
+/* 5. Projects Section Styling (Using CSS Grid) */
+.projects-grid {
+    display: grid; /* CSS Grid layout */
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr)); /* Adaptable columns */
+    gap: 3rem;
+}
+
+.project-card {
+    background-color: #222222;
+    padding: 3rem;
+    border-radius: 0.8rem;
+    transition: border 0.3s, transform 0.3s;
+    border: 0.1rem solid #222222;
+}
+
+.project-card:hover {
+    border: 0.1rem solid #FF0000; /* Red border on hover */
+    transform: translateY(-0.5rem); /* Lift effect */
+}
+
+.project-card h4 {
+    color: #FF0000;
+    margin-top: 0;
+}
+
+/* 6. Contact Form Styling */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 50rem;
+    margin: 0 auto;
+    gap: 2rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 1.5rem;
+    font-size: 1.6rem;
+    border: 0.1rem solid #333;
+    border-radius: 0.5rem;
+    background-color: #1e1e1e;
+    color: #f0f0f0;
+}
+
+/* 7. Footer Styling */
+.footer {
+    text-align: center;
+    padding: 2rem 5vw;
+    font-size: 1.4rem;
+    background-color: #000000;
+}
+
+/* MEDIA QUERIES FOR RESPONSIVENESS (Mobile-First) */
+
+/* Tablet (Medium Screens: 768px and up) */
+@media (max-width: 768px) {
+    /* Hero: Stack image and text */
+    .hero-section {
+        flex-direction: column; 
+        text-align: center;
+        padding-top: 10rem;
+    }
+
+    .hero-image {
+        order: -1; /* Move image above text on small screens */
+        margin-bottom: 4rem;
+    }
+
+    .hero-image img {
+        width: 50vw;
+    }
+    
+    .animated-text {
+        font-size: 5rem;
+    }
+
+    /* Skills: Switch to 2 columns */
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Mobile (Small Screens: 480px and up) */
+@media (max-width: 480px) {
+    h1 { font-size: 4rem; }
+    .animated-text { font-size: 4rem; }
+
+    /* Header: Stack navigation links or hide them into a menu (not implemented here for simplicity) */
+    .header {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    
+    .nav-links a:not(.btn-primary) {
+        display: none; /* Simplification: hide non-essential links */
+    }
+
+    /* Skills: Switch to 1 column for true mobile stacking */
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Projects: Switch to 1 column */
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+}
